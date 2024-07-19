@@ -1,0 +1,140 @@
+version: 3.8.2
+
+type: DeclarativeSource
+
+check:
+  type: CheckStream
+  stream_names:
+    - pokemon
+
+definitions:
+  streams:
+    pokemon:
+      type: DeclarativeStream
+      name: pokemon
+      retriever:
+        type: SimpleRetriever
+        requester:
+          $ref: '#/definitions/base_requester'
+          path: /pokemon
+          http_method: GET
+        record_selector:
+          type: RecordSelector
+          extractor:
+            type: DpathExtractor
+            field_path:
+              - results
+      transformations:
+        - type: AddFields
+          fields:
+            - path:
+                - test
+                - a
+              value: '1'
+        - type: AddFields
+          fields:
+            - path:
+                - test
+                - b
+              value: '2'
+      schema_loader:
+        type: InlineSchemaLoader
+        schema:
+          $ref: '#/schemas/pokemon'
+    another:
+      type: DeclarativeStream
+      name: another
+      retriever:
+        type: SimpleRetriever
+        requester:
+          $ref: '#/definitions/base_requester'
+          path: another
+          http_method: GET
+        record_selector:
+          type: RecordSelector
+          extractor:
+            type: DpathExtractor
+            field_path: []
+      schema_loader:
+        type: InlineSchemaLoader
+        schema:
+          $ref: '#/schemas/another'
+    test:
+      type: DeclarativeStream
+      name: test
+      retriever:
+        type: SimpleRetriever
+        requester:
+          $ref: '#/definitions/base_requester'
+          path: test
+          http_method: GET
+        record_selector:
+          type: RecordSelector
+          extractor:
+            type: DpathExtractor
+            field_path: []
+      schema_loader:
+        type: InlineSchemaLoader
+        schema:
+          $ref: '#/schemas/test'
+  base_requester:
+    type: HttpRequester
+    url_base: https://pokeapi.co/api/v2/
+
+streams:
+  - $ref: '#/definitions/streams/pokemon'
+  - $ref: '#/definitions/streams/another'
+  - $ref: '#/definitions/streams/test'
+
+spec:
+  type: Spec
+  connection_specification:
+    type: object
+    $schema: http://json-schema.org/draft-07/schema#
+    required: []
+    properties: {}
+    additionalProperties: true
+
+metadata:
+  autoImportSchema:
+    pokemon: true
+    another: true
+    test: true
+
+schemas:
+  pokemon:
+    type: object
+    $schema: http://json-schema.org/schema#
+    additionalProperties: true
+    properties:
+      name:
+        type:
+          - string
+          - 'null'
+      test:
+        type:
+          - object
+          - 'null'
+        properties:
+          a:
+            type:
+              - number
+              - 'null'
+          b:
+            type:
+              - number
+              - 'null'
+      url:
+        type:
+          - string
+          - 'null'
+  another:
+    type: object
+    $schema: http://json-schema.org/draft-07/schema#
+    additionalProperties: true
+    properties: {}
+  test:
+    type: object
+    $schema: http://json-schema.org/draft-07/schema#
+    additionalProperties: true
+    properties: {}
