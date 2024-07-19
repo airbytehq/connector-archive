@@ -2,7 +2,7 @@ metadataSpecVersion: "1.0"
 data:
   allowedHosts:
     hosts:
-            - TODO        registries:
+              - TODO        registries:
     oss:
       enabled: true
     cloud:
@@ -10,13 +10,22 @@ data:
   remoteRegistries:
     pypi:
       enabled: false
-      packageName: airbyte-source-todo-2  connectorBuildOptions:
-    baseImage: TODO  connectorSubtype: api
+      packageName: airbyte-source-todo-2
+  connectorBuildOptions:
+    baseImage: TODO
+  connectorSubtype: api
   connectorType: source
-  definitionId: TODO  dockerImageTag: TODO  dockerRepository: airbyte/source-todo-2  githubIssueLabel: source-todo-2  icon: icon.svg
+  definitionId: TODO
+  dockerImageTag: TODO
+  dockerRepository: airbyte/source-todo-2
+  githubIssueLabel: source-todo-2
+  icon: icon.svg
   license: MIT
-  name: SOURCE TODO  releaseDate: TODO  releaseStage: alpha
+  name: SOURCE TODO
+  releaseDate: TODO
+  releaseStage: alpha
   supportLevel: community
-  documentationUrl: https://docs.airbyte.com/integrations/sources/TODO  tags:
+  documentationUrl: https://docs.airbyte.com/integrations/sources/TODO
+  tags:
     - language:manifest-only
     - cdk:low-code
