@@ -1,7 +1,7 @@
 # My Connector Name 
 This is a connector for My Connector Name contributed directly from the Connector Builder
 
-This is my description
+This is my description UPDATED
 ## Local Development
 ### Environment Setup
 You will need `airbyte-ci` installed. You can find the documentation [here](airbyte-ci).
