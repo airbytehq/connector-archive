@@ -16,14 +16,14 @@ data:
     baseImage: TODO
   connectorSubtype: api
   connectorType: source
-  definitionId: 6b8e20b2-51e0-4603-87b4-badd80218524
+  definitionId: 0a7f69a1-9ea4-49eb-b1f1-3f9c5912eee1
   dockerImageTag: 0.0.1
   dockerRepository: airbyte/source-todo-4
   githubIssueLabel: source-todo-4
   icon: icon.svg
   license: MIT
   name: SOURCE TODO
-  releaseDate: 2024-07-24
+  releaseDate: 2024-07-25
   releaseStage: alpha
   supportLevel: community
   documentationUrl: https://docs.airbyte.com/integrations/sources/TODO
