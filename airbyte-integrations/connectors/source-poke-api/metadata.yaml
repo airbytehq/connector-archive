@@ -16,7 +16,7 @@ data:
     baseImage: TODO
   connectorSubtype: api
   connectorType: source
-  definitionId: c9d16886-dfbe-4824-9a08-e54a63985d70
+  definitionId: 1a5519ab-6b40-41ed-a4cf-36f4502fd6fe
   dockerImageTag: 0.0.1
   dockerRepository: airbyte/source-poke-api
   githubIssueLabel: source-poke-api
