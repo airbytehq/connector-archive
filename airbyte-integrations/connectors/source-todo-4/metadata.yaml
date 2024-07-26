@@ -16,7 +16,7 @@ data:
     baseImage: TODO
   connectorSubtype: api
   connectorType: source
-  definitionId: 39e2f04e-a5e8-4a13-9de8-fce2c5585e35
+  definitionId: 123a5565-fcff-44c8-ad09-3408bf5d93f7
   dockerImageTag: 0.0.1
   dockerRepository: airbyte/source-todo-4
   githubIssueLabel: source-todo-4
