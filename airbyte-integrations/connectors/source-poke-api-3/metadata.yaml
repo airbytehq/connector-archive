@@ -1,0 +1,36 @@
+metadataSpecVersion: "1.0"
+data:
+  allowedHosts:
+    hosts:
+    - TODO  
+  registries:
+    oss:
+      enabled: true
+    cloud:
+      enabled: true
+  remoteRegistries:
+    pypi:
+      enabled: false
+      packageName: airbyte-source-poke-api-3
+  connectorBuildOptions:
+    baseImage: TODO
+  connectorSubtype: api
+  connectorType: source
+  definitionId: 2116d949-9b9a-49e9-96cd-625bfd14659e
+  dockerImageTag: 0.0.1
+  dockerRepository: airbyte/source-poke-api-3
+  githubIssueLabel: source-poke-api-3
+  icon: icon.svg
+  license: MIT
+  name: Poke API
+  releaseDate: 2024-07-26
+  releaseStage: alpha
+  supportLevel: community
+  documentationUrl: https://docs.airbyte.com/integrations/sources/TODO
+  tags:
+    - language:manifest-only
+    - cdk:low-code
+
+  ab_internal:
+    ql: 100
+    sl: 100
