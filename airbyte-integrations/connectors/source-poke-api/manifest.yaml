@@ -44,6 +44,8 @@ spec:
     additionalProperties: true
 
 metadata:
+  autoImportSchema:
+    pokemon: true
   testedStreams:
     pokemon:
       hasRecords: true
@@ -52,21 +54,20 @@ metadata:
       primaryKeysAreUnique: true
       primaryKeysArePresent: true
       responsesAreSuccessful: true
-  autoImportSchema:
-    pokemon: true
 
 schemas:
   pokemon:
     type: object
     $schema: http://json-schema.org/schema#
+    additionalProperties: true
     properties:
-      next:
-        type:
-          - string
-          - 'null'
       count:
         type:
           - number
+          - 'null'
+      next:
+        type:
+          - string
           - 'null'
       results:
         type:
@@ -77,12 +78,11 @@ schemas:
             - object
             - 'null'
           properties:
-            url:
-              type:
-                - string
-                - 'null'
             name:
               type:
                 - string
                 - 'null'
-    additionalProperties: true
+            url:
+              type:
+                - string
+                - 'null'
