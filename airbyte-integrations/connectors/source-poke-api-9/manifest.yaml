@@ -1,0 +1,134 @@
+version: 3.8.2
+
+type: DeclarativeSource
+
+check:
+  type: CheckStream
+  stream_names:
+    - pokemon
+
+definitions:
+  streams:
+    pokemon:
+      type: DeclarativeStream
+      name: pokemon
+      retriever:
+        type: SimpleRetriever
+        requester:
+          $ref: '#/definitions/base_requester'
+          path: pokemon
+          http_method: GET
+        record_selector:
+          type: RecordSelector
+          extractor:
+            type: DpathExtractor
+            field_path:
+              - results
+      schema_loader:
+        type: InlineSchemaLoader
+        schema:
+          $ref: '#/schemas/pokemon'
+    all pokemon:
+      type: DeclarativeStream
+      name: all pokemon
+      retriever:
+        type: SimpleRetriever
+        requester:
+          $ref: '#/definitions/base_requester'
+          path: /pokemon
+          http_method: GET
+        record_selector:
+          type: RecordSelector
+          extractor:
+            type: DpathExtractor
+            field_path: []
+      schema_loader:
+        type: InlineSchemaLoader
+        schema:
+          $ref: '#/schemas/all pokemon'
+  base_requester:
+    type: HttpRequester
+    url_base: https://pokeapi.co/api/v2/
+
+streams:
+  - $ref: '#/definitions/streams/pokemon'
+  - $ref: '#/definitions/streams/all pokemon'
+
+spec:
+  type: Spec
+  connection_specification:
+    type: object
+    $schema: http://json-schema.org/draft-07/schema#
+    required:
+      - username
+    properties:
+      username:
+        type: string
+        order: 0
+        title: Username
+    additionalProperties: true
+
+metadata:
+  testedStreams:
+    pokemon:
+      hasRecords: true
+      streamHash: e4e9f525f53df023f0a938b416798734c29014be
+      hasResponse: true
+      primaryKeysAreUnique: true
+      primaryKeysArePresent: true
+      responsesAreSuccessful: true
+    all pokemon:
+      hasRecords: true
+      streamHash: 17d96631722fe4a26f7846df302ed9b1089d515f
+      hasResponse: true
+      primaryKeysAreUnique: true
+      primaryKeysArePresent: true
+      responsesAreSuccessful: true
+  autoImportSchema:
+    pokemon: true
+    all pokemon: true
+
+schemas:
+  pokemon:
+    type: object
+    $schema: http://json-schema.org/schema#
+    properties:
+      url:
+        type:
+          - string
+          - 'null'
+      name:
+        type:
+          - string
+          - 'null'
+    additionalProperties: true
+  all pokemon:
+    type: object
+    $schema: http://json-schema.org/schema#
+    properties:
+      next:
+        type:
+          - string
+          - 'null'
+      count:
+        type:
+          - number
+          - 'null'
+      results:
+        type:
+          - array
+          - 'null'
+        items:
+          type:
+            - object
+            - 'null'
+          properties:
+            url:
+              type:
+                - string
+                - 'null'
+            name:
+              type:
+                - string
+                - 'null'
+    additionalProperties: true
