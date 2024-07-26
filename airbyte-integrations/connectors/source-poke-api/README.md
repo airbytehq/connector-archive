@@ -1,6 +1,6 @@
 # Poke APIThis is a connector for Poke API contributed directly from the Connector Builder
 
-A connector for the Poke API
+
 ## Local Development
 ### Environment Setup
 You will need `airbyte-ci` installed. You can find the documentation [here](airbyte-ci).
