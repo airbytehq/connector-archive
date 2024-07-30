@@ -9,7 +9,7 @@ HI MOM 8
 ## Streams
 | Stream Name | Primary Key | Pagination | Supports Full Sync | Supports Incremental |
 |-------------|-------------|------------|---------------------|----------------------|
-| pokemon | id | No pagination | ✅ |  |
+| pokemon | id | No pagination | ✅ |  ❌  |
 
 
 ## Changelog
