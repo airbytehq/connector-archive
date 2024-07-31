@@ -19,6 +19,6 @@ HI MOM 8
 
 | Version          | Date       | Subject        |
 |------------------|------------|----------------|
-| 0.0.1 | 2024-07-30 | Initial release by bechurch-test via Connector Builder|
+| 0.0.1 | 2024-07-31 | Initial release by bechurch-test via Connector Builder|
 
 </details>
